@@ -1,4 +1,6 @@
 //dijkstra on grid
+//we do not need priority Queue here as edge weight is 1 for all so all the node aty same level will have same weigth hence no need of ssorting thm on cost/ path length/ distance 
+    //thus savingO(logm)
 class pair
 {
     int row,col,distance;
