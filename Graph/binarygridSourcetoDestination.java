@@ -1,6 +1,7 @@
 //dijkstra on grid
 //we do not need priority Queue here as edge weight is 1 for all so all the node aty same level will have same weigth hence no need of ssorting thm on cost/ path length/ distance 
     //thus savingO(logm)
+
 class pair
 {
     int row,col,distance;
@@ -45,6 +46,8 @@ class Solution {
                     {
                         dist[nrow][ncol]=1+d;
                         pq.offer(new pair(nrow, ncol, dist[nrow][ncol]));
+                        if(nrow==destination[0] && ncol==destination[1]) //slight modification stop when reached destination
+                        return   dist[nrow][ncol];
                     }
                 }
             }
