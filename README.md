@@ -11,3 +11,6 @@ x and y are automatically of type pair and above implementation sorts priority q
            });
 ## DS
 ### Treemap orders itself in ascending order on keys , useful in vertical order traversal
+
+### Trie
+#### stores char in linkedlist type way
