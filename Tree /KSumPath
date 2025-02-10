@@ -1,0 +1,53 @@
+
+class Solution {
+    int sum=0;
+    int ans=0;
+    Map<Integer,Integer> map=new HashMap<>();
+    public int sumK(Node root, int k) {
+        // code here
+        map.put(0,1);
+        f(root,k);
+        return ans;
+        
+    }
+    void f(Node n,int k)
+    {
+        if(n==null)
+        return ;
+        sum+=n.data;
+   
+    if(map.containsKey(sum-k))
+    ans+=map.get(sum-k);
+    map.put(sum,map.getOrDefault(sum,0)+1);
+    f(n.left,k);
+    f(n.right,k);
+   
+    map.put(sum,map.getOrDefault(sum,0)-1);
+     sum=sum-n.data;
+     //here we manually implement backtracking we ould have done it simply using  a variable in function
+     //which owuld have made it in recursive contetx bz  we do not want all the path like coning down going up we c=only need paths coming down 
+     //so once a path is fully over like reaching null on left sum we must backtrack 
+     
+     //we could have done this alternative
+     /**
+      * void f(Node n,int k,int currSum)
+    {
+        if(n==null)
+        return ;
+        curraSum+=n.data;
+   
+    if(map.currSum(currSum-k))
+    ans+=map.get(currSum-k);
+    map.put(currSum,map.getOrDefault(currSum,0)+1);
+    f(n.left,k,currSum);
+    f(n.right,k,currSum);
+   
+    map.put(sum,map.getOrDefault(currSum,0)-1);
+     //no need of doing backtracking as it would be done itsleft sice vaiable is part of a recursive stack and not  a lglobal variable 
+     
+     
+    //System.out.println(sum);
+    }
+}
+ */
+}}
